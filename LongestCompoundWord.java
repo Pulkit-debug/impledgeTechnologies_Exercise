@@ -146,7 +146,7 @@ class LongestCompoundWord {
         System.out.println("Second Longest Compound Word is: " + secondLongestCompoundWord);
         // Average Time required to solve main input file is : approx 80ms ::
         // Depends on the machine.
-        System.out.println("Time required to complete the execution is: " + (endTime - startTime));
+        System.out.println("Time required to complete the execution is: " + (endTime - startTime) + "ms");
 
         out.flush();
     }
