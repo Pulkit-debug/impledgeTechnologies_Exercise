@@ -23,8 +23,9 @@
  <h1><center>WORKING OF CODE.</center> </h1>
 
   <hr>
-
-<p>The main concept of the program is to divide the string into every two possible pair<br>
+<p> At the first after we take input from the file we put every string into a list then we sort the list based on the string length in descending order
+   longest string in length will come at the first index and so on.</p>
+<p>Now the main concept of the program is to divide the string into every two possible pair<br>
   - for ex: String = "ratcat" So it will be divided something like ->>   "r  atcat" -> "ra tcat" -> "rat cat"
   </p>
 
