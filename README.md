@@ -43,6 +43,10 @@
 - The total running time complexity of this code will be around -> O(n * m^2)
 - - > where n = no. of inputs we have.
 - - > m = average length of the string.
+   
+   ![image](https://user-images.githubusercontent.com/55589024/194065005-17dd5f25-1122-4852-9284-2c79153e5b7c.png)
+
+
 
 - TODO: If I use trie and queue data structure as present on google then also time complexity will be nearly equal
   because searching for a word in trie will also be equal to O(m) where m is the average length of the string.
