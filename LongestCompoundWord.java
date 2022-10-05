@@ -170,8 +170,9 @@ class LongestCompoundWord {
          */
        for(int i = 1;i<s.length();i++) {
         // System.out.println(p.x + " " + p.y);
-        /* In below logic we are checking if the first part of the pair that we created is present in 
-         * the hashmap that we have meaning the word is present in the hashmap or not.
+        /* In below logic we are checking if the first part of the pair(basically first part and second part of the string)
+        that we created is present in the hashmap that we have meaning the word is present in the hashmap or not.
+         * 
          * And if the first part is present in the hashmap then we take the rest of the string
          * and recursively to the same on that break it into pairs
          * we continue this till the string is either null or the size is 1.
