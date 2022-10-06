@@ -85,35 +85,38 @@ class LongestCompoundWord {
         // }
 
 
-        ArrayList<String> al = new ArrayList<>();
         String line;
         
+
+        // Creating a tree map in which strings are sorted by their length in decreasing order as we need the largest string.
+        /*  For sorting in decreasing order by leangth "SortByLengthDec()" I have used custom comparator
+            present outside main.
+            O(logn) time complexity for creating this treemap.
+        */ 
+        TreeMap<String, Boolean> tree = new TreeMap<>(new SortByLengthDec());
         // Taking input till the end of the file and adding every string into a list.
+
+
+        /* Creating an HashMap that will store either true value for every string that is given to us
+         * usefull later when need to check the compound words.
+         */
+        HashMap<String, Boolean> map = new HashMap<>();
         while((line = read.nextLine()) != null) {
-            al.add(line);
+            tree.put(line, true);
+            map.put(line, true);
         }
 
         // String words[] = new String[al.size()];
         // for(int i = 0;i<al.size();i++) words[i] = al.get(i);
 
 
-
         
         long startTime = System.currentTimeMillis();
 
-        // Sorting our list by their length in decreasing order as we need the largest string.
-        /*  For sorting in decreasing order by leangth "SortByLengthDec()" I have used custom comparator
-            present outside main.
-        */ 
-        Collections.sort(al, new SortByLengthDec());
+        
 
-        /* Creating an HashMap that will store either true value for every string that is given to us
-         * usefull later when need to check the compound words.
-         */
-        HashMap<String, Boolean> map = new HashMap<>();
-        for(int i = 0;i<al.size();i++) {
-            map.put(al.get(i), true);
-        }
+        
+        
 
         String longestCompoundWord = "";
         String secondLongestCompoundWord = "";
@@ -121,20 +124,22 @@ class LongestCompoundWord {
         int counter = 0;
         boolean gotLongest = false;
         boolean gotSecondLongest = false;
-        for(int i = 0;i<al.size();i++) {
+        // for(int i = 0;i<tree.size();i++) {
+            for(Map.Entry<String, Boolean> entry : tree.entrySet()) {
             /* Check possible is the function that'll either return true or fasle based on if the 
              * string is compound or not.
              */
-            if(checkPossible(al.get(i), map)) {
+            String give = entry.getKey();
+            if(checkPossible(give, map)) {
                 // logic to get the longest compound word.
                 if(!gotLongest) {
-                    longestCompoundWord = al.get(i);
+                    longestCompoundWord = give;
                     gotLongest = true;
                     continue;
                 }
                 // Logic to get the second Longest compound word.
                 if(!gotSecondLongest) {
-                    secondLongestCompoundWord = al.get(i);
+                    secondLongestCompoundWord = give;
                     gotSecondLongest = true;
                     break;
                 } 
@@ -208,4 +213,3 @@ class SortByLengthDec implements Comparator<String>
         return b.length() - a.length();
     }
 }
-
