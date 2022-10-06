@@ -17,13 +17,12 @@
       eclipse.<br>
       NOTE: make sure the inpt file is also in the same folder as the .java file.</br></br>
       Now simply just run the code.
-     
 
 
  <h1><center>WORKING OF CODE.</center> </h1>
 
   <hr>
-<p> At the first after we take input from the file we put every string into a list then we sort the list based on the string length in descending order
+<p> At the first after we take input from the file we put every string into a treemap (O(logn)) we pass our custom comparator to sort the treemap according to string length in descending order
    longest string in length will come at the first index and so on.</p>
 <p>Now the main concept of the program is to divide the string into every two possible pair<br>
   - for ex: String = "ratcat" So it will be divided something like ->>   "r  atcat" -> "ra tcat" -> "rat cat"
@@ -32,7 +31,7 @@
 - <p>now we check if the first part of the pair is present in the hashmap of all the strings.
   if the first part of the pair is present then we recuresively to the same with the second part of the string
 
- - - > " ra tcat" -> "t cat" -> "c at".... </p>
+- - > " ra tcat" -> "t cat" -> "c at".... </p>
 
 - <p>if we reach the end of the string and the rest of the parts are matched then we simply return true;
 
@@ -40,13 +39,11 @@
 
   repeat the process by appending more character to the first string and then simply the process is repeated again.
 
-- The total running time complexity of this code will be around -> O(n * m^2)
+- The total running time complexity of this code will be around -> O(logn \* m^2)
 - - > where n = no. of inputs we have.
 - - > m = average length of the string.
-   
-   ![image](https://user-images.githubusercontent.com/55589024/194065005-17dd5f25-1122-4852-9284-2c79153e5b7c.png)
 
-
+  ![image](https://user-images.githubusercontent.com/55589024/194065005-17dd5f25-1122-4852-9284-2c79153e5b7c.png)
 
 - TODO: If I use trie and queue data structure as present on google then also time complexity will be nearly equal
   because searching for a word in trie will also be equal to O(m) where m is the average length of the string.
